@@ -2,6 +2,8 @@
 #define GRAF_IMPL_H
 
 #include <graf.h>
+#include <fstream>
+#include <sstream>
 #include <iostream>
 #include <stdio.h>
 #include <stdexcept>
@@ -30,10 +32,19 @@ int Graf<T>::size() const {
 }
 
 template <typename T>
-void Graf<T>::insert_vertice(const T& val) {
+bool Graf<T>::exist(const T& val) const {
+    for (auto it : vertices) {
+        if (it->vertice == val) return true;
+    }
+    return false;
+}
+
+template <typename T>
+void Graf<T>::insert_vertice(const T& val, Node* &aux) {
     Node *nuevo = new Node;
     nuevo->vertice = val;
     vertices.push_front(nuevo);
+    aux = nuevo;
 }
 
 template <typename T>
@@ -51,7 +62,7 @@ template <typename T>
 void Graf<T>::insert_aresta(const T& a, const T&b) {
     bool found = false;
     if (a == b) {
-        string msg = "Error: son el mismo  vertice";
+        string msg = "Error: son el mismo vertice";
         throw invalid_argument(msg);
     }
 
@@ -64,16 +75,13 @@ void Graf<T>::insert_aresta(const T& a, const T&b) {
     }
 
     if (A == nullptr) {
-        string msg = "Error: tu primer nodo no existe";
-        throw invalid_argument(msg);
+        insert_vertice(a, A);
     }
-
     if (B == nullptr) {
-        string msg = "Error: tu segundo nodo no existe";
-        throw invalid_argument(msg);
+        insert_vertice(b, B);
     }
 
-    for (auto& it : A->conections) {
+    for (auto& it : A->arestas) {
         if (it == B) {
             found = true;
             break;
@@ -82,9 +90,8 @@ void Graf<T>::insert_aresta(const T& a, const T&b) {
 
     if (not found) {
         A->arestas.push_front(B);
-        B->arestas.push_fornt(A);
-    } else throw invalid_argument("Error ya existe una aresta entre tu primer vertice y tu segundo vertice");
-
+        B->arestas.push_front(A);
+    }
 } 
 
 template <typename T> 
@@ -130,6 +137,50 @@ void Graf<T>::remove_aresta(const T& a, const T& b) {
             }
         }
     } else throw invalid_argument("Error: tu aresta entre los vertices dados no existe");
+}
+
+template <typename T> 
+void Graf<T>::read(ifstream& file) {
+    string linea;
+    while (getline(file, linea)) {
+        if (not linea.empty()) {
+            stringstream line(linea);
+
+            string vertice;
+            getline(line, vertice, ',');
+            Node *nosirve = new Node;
+            if (not exist(stringToT(vertice))) insert_vertice(stringToT(vertice), nosirve);
+
+            string arestas;
+            while (getline(line, arestas, ',')) {
+                insert_aresta(stringToT(vertice), stringToT(arestas));
+            }
+            
+        } else break;
+    }
+}
+
+template <typename T>
+T Graf<T>::stringToT(const string& a) {
+    T value;
+    std::istringstream iss(a);
+    iss >> value;
+
+    if (iss.fail()) {
+        throw std::invalid_argument("Error al convertir string a tipo T.");
+    }
+
+    return value;
+}
+
+template <typename T>
+void Graf<T>::print() {
+    for (auto& nodo : vertices) {
+        cout << "En la direccion (" << nodo << ") hay un nodo con valor: " << nodo->vertice << " con las siguientes conexiones : ";
+        auto end = nodo->arestas.end();
+        for (auto it = nodo->arestas.begin(); it != end; ++it) cout << (*it)->vertice << " ";
+        cout << endl; 
+    }
 }
 
 #endif
