@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <list>
-#include "Graf_impl.h"
 using namespace std;
 
 template <typename T> class Graf {
@@ -11,7 +10,7 @@ template <typename T> class Graf {
         struct Node {
             T vertice;
             list<Node*> arestas;
-        }
+        };
 
         list<Node*> vertices;
     public:
@@ -27,6 +26,8 @@ template <typename T> class Graf {
 
     int size() const;
 
-};
 
-#endif GRAF_H
+
+};
+#include "Graf_impl.h"
+#endif

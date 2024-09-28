@@ -1,6 +1,6 @@
 #Variables
 COP = g++
-FLAGS = -Wall -std=c++11 -g -I./include
+FLAGS = -Wall -std=c++11 -g -I./resource
 NAME = main
 
 OBJ = main.o

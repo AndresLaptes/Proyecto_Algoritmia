@@ -3,12 +3,15 @@
 
 #include <graf.h>
 #include <iostream>
+#include <stdio.h>
+#include <stdexcept>
+using namespace std;
 
 template <typename T>
 Graf<T>::Graf(const T& value) {
     Node *nuevo = new Node;
     nuevo->vertice = value;
-    vertex.push_front(nuevo);
+    vertices.push_front(nuevo);
 }
 
 
@@ -23,7 +26,7 @@ Graf<T>::Graf() {}
 
 template <typename T>
 int Graf<T>::size() const {
-    return vertexs.size();
+    return vertices.size();
 }
 
 template <typename T>
