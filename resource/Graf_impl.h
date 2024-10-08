@@ -1,7 +1,7 @@
 #ifndef GRAF_IMPL_H
 #define GRAF_IMPL_H
 
-#include <graf.h>
+#include "graf.h"
 #include <fstream>
 #include <sstream>
 #include <iostream>
@@ -40,11 +40,10 @@ bool Graf<T>::exist(const T& val) const {
 }
 
 template <typename T>
-void Graf<T>::insert_vertice(const T& val, Node* &aux) {
+void Graf<T>::insert_vertice(const T& val) {
     Node *nuevo = new Node;
     nuevo->vertice = val;
     vertices.push_front(nuevo);
-    aux = nuevo;
 }
 
 template <typename T>
@@ -66,19 +65,11 @@ void Graf<T>::insert_aresta(const T& a, const T&b) {
         throw invalid_argument(msg);
     }
 
-
     Node *A = nullptr;
     Node *B = nullptr;
     for (auto& node : vertices) {
         if (node->vertice == a) A = node;
         else if (node->vertice == b) B = node;
-    }
-
-    if (A == nullptr) {
-        insert_vertice(a, A);
-    }
-    if (B == nullptr) {
-        insert_vertice(b, B);
     }
 
     for (auto& it : A->arestas) {
@@ -149,7 +140,7 @@ void Graf<T>::read(ifstream& file) {
             string vertice;
             getline(line, vertice, ',');
             Node *nosirve = new Node;
-            if (not exist(stringToT(vertice))) insert_vertice(stringToT(vertice), nosirve);
+            if (not exist(stringToT(vertice))) insert_vertice(stringToT(vertice));
 
             string arestas;
             while (getline(line, arestas, ',')) {

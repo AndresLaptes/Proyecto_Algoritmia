@@ -6,21 +6,18 @@
 using namespace std;
 
 template <typename T> class Graf {
-    private:
-        struct Node {
+    public:
+
+    struct Node {
             T vertice;
             list<Node*> arestas;
         };
-
-        list<Node*> vertices;
-        T stringToT(const string& a);
-    public:
     
     Graf(const T& val);
     Graf();
     ~Graf();
 
-    void insert_vertice(const T& val, Node* &aux);
+    void insert_vertice(const T& val);
     void remove_vertice(const T& val);
     void insert_aresta(const T& a, const T& b);
     void remove_aresta(const T& a, const T& b);
@@ -31,7 +28,10 @@ template <typename T> class Graf {
     int size() const;
     void print();
 
+    private:
 
+        list<Node*> vertices;
+        T stringToT(const string& a);
 
 };
 #include "Graf_impl.h"
