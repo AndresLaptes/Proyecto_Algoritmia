@@ -1,7 +1,6 @@
 #include <iostream>
 #include <list>
 #include <graf.h> 
-#include <cstdlib>
 #include <ctime>
 
 using namespace std;
