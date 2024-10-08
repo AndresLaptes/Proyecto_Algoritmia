@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 #SCRIPT PER VISUALITZAR UN GRAF (PER A CANVIAR EL FITXER DEL GRAF CANVIEU AQUESTES VARIABLES)
 #CAL QUE NOMÉS HI HAGI UN GRAF A CADA FITXER
 
-nom_fitxer = 'grafprova.csv'  # Canvia això pel nom del teu fitxer CSV
+nom_fitxer = 'grafos.csv'  # Canvia això pel nom del teu fitxer CSV
 nom_resultat = 'out.png' #Canvia això pel nom del resultat
 
 # Llegeix el CSV
