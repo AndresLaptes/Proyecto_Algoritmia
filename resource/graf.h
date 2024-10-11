@@ -5,34 +5,29 @@
 #include <list>
 using namespace std;
 
-template <typename T> class Graf {
+class grafo
+{
     private:
-        struct Node {
-            T vertice;
-            list<Node*> arestas;
-        };
-
-        list<Node*> vertices;
-        T stringToT(const string& a);
+        list<pair<int, list<int>>> vertices;
     public:
-    
-    Graf(const T& val);
-    Graf();
-    ~Graf();
-
-    void insert_vertice(const T& val, Node* &aux);
-    void remove_vertice(const T& val);
-    void insert_aresta(const T& a, const T& b);
-    void remove_aresta(const T& a, const T& b);
-
-    void read(ifstream& file);
-
-    bool exist(const T& val) const;
-    int size() const;
-    void print();
+        grafo();
+        grafo(int v, const list<int>& arestas);   
 
 
+        void insert_vertice(int v);
+        void remove_vertice(int v);
+        void insert_aresta(int v, int v2);
+        void remove_aresta(int v, int v2);
 
+        int size() const;
+        bool exist(int v) const;
+        bool exist_conection(int v1, int v2) const;
+        void print() const;
+
+        void read(ifstream& file);
+        void write(ofstream& file);
 };
+
+
 #include "Graf_impl.h"
 #endif
