@@ -1,7 +1,7 @@
 #ifndef GRAF_IMPL_H
 #define GRAF_IMPL_H
 
-#include <graf.h>
+#include "graf.h"
 #include <fstream>
 #include <sstream>
 #include <iostream>
