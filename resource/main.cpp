@@ -18,7 +18,15 @@ using namespace std;
 }
 
 int main() {
-    ifstream file("grafos.csv");
+    
+    string nomf;
+    cout << "insereix en nom del fitxer si vols llegir els grafs des d'un csv, si no posa no" << endl;
+    cin >> nomf;
+
+    if(nomf != "no"){
+        ifstream file(nomf);
+    }
+
     if (not file.is_open()) cout << "No se puede abrir" << endl; 
     vector<grafo> a(2); 
     for (int i = 0; i < 2; ++i) {
@@ -31,7 +39,14 @@ int main() {
     for (int i = 0; i < 2; ++i) a[i].print();
     file.close();
 
+    int vertex;
+    double prob;
+
     for (int i = 0; i < 2; ++i) {
+        cout << "Posa el numero de vertex i la probabilitat" << endl;
+
+        cin >> vertex >> prob;
+
         string name = "grafo";
         name += to_string(i) + ".csv";
         ofstream nuevo(name);
