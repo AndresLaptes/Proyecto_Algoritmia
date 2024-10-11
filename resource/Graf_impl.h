@@ -110,6 +110,14 @@ int grafo::size() const {
     return vertices.size();
 }
 
+void grafo::copia_grafo(list<pair<int, list<int>>> aux) {
+    vertices = aux;
+}
+
+list<pair<int, list<int>>> grafo::get_vertices() const {
+    return vertices;
+}
+
 bool grafo::exist(int v) const {
     for (auto& i : vertices) {
         if (i.first == v) return true;
