@@ -13,9 +13,8 @@ $(NAME): $(OBJ)
 main.o: rsc/main.cpp
 	$(COP) $(FLAGS) -c rsc/main.cpp
 
-perlocation:
-	$(COP) $(FLAGS) -c perlocation.cc
-perlocation.o:
-	$(COP) $(FLAGS) -0 perlocation perlocation.o
+perlocation: perlocation.cc
+	$(COP) $(FLAGS) -o perlocation perlocation.cc
+
 clean: 
 	rm -f $(OBJ) $(NAME) *.h.gch *.o res.txt

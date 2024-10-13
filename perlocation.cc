@@ -1,61 +1,116 @@
 #include <iostream>
 #include <list>
-#include <graf.h> 
-#include <ctime>
+#include "graf.h" 
+#include <vector>
+#include <random>
 
 using namespace std;
 double p;
 
-void site_perlocation(Graf<int> grafo) {
-    auto itr = grafo.vertices.begin();
-    double a;
-    for (auto itr = grafo.vertices.begin(); itr != grafo.vertices.end(); ++itr) {
-        //Generar a random
+void site_perlocation(grafo& grafo) {
+
+    //Generar distribucio aleatoria
+    random_device gen_rand;
+    default_random_engine generator(gen_rand());
+    uniform_real_distribution<double> distribution(0,1);  
+
+    cout << "pini"<< endl;
+    double a; 
+    list<pair<int, list<int>>> aux1 = grafo.get_vertices();
+    for (auto itr = aux1.begin(); itr != aux1.end(); ++itr) {
+        cout << "iteracion" << endl;
+        a = distribution(generator);
         if (a > (1-p)) {
-            grafo.remove_vertice(itr->vertex);
+            cout << "p_rem"<< endl;
+            grafo.remove_vertice((*itr).first);
+            cout << "p_rem_fin"<< endl;
         }  
     }  
+    grafo.copia_grafo(aux1);
 
 }
 
 
-void bond_perlocation(Graf<int> grafo) {
+void bond_perlocation(grafo& grafo) {
 
-    auto itr = grafo.vertices.begin();
+    random_device gen_rand;
+    default_random_engine generator(gen_rand());
+    uniform_real_distribution<double> distribution(0,1);
+
+        cout << "pinia"<< endl;
+
+
     double a;
-    for (auto itr = grafo.vertices.begin(); itr != grafo.vertices.end(); ++itr) {
-        for (auto itr2 = itr->conections.begin(); itr2 != itr->conections.end(); ++itr2) {
-            //Generar a random
+    list<pair<int, list<int>>> aux1 = grafo.get_vertices();
+
+    for (auto itr = aux1.begin(); itr != aux1.end(); ++itr) {
+            cout << "ini_for_2" << endl;
+        for (auto itr2 = (*itr).second.begin(); itr2 != (*itr).second.end(); ++itr2) {
+            a = distribution(generator);
             if (a > (1-p)) {
-                grafo.remove_aresta();
+                cout << "p_rema"<< endl;
+                grafo.remove_aresta((*itr).first, (*itr2));
+                cout << "p_rema_fin"<< endl;
             }  
         }
-    } 
+    }
+    grafo.copia_grafo(aux1);
+
 }
 
-void main () {
+int main () {
     cout << "Inici del Programa" << endl;
-    
-    Graf<int> grafo;
-    
+    cout << "Nombre de grafs a tractar:__" << endl;
+    int numG; 
+    cin >> numG;
+    vector<grafo> G(numG); 
+
     ifstream file ("grafos.csv");
     if (not file.is_open()) cout << "Error: No se puedo abrir el archivo grafos.csv" << endl;
-    grafo.read(file);
 
-    cout << "Indiqui el tipus de perlocació [Vertex/Arestes]:" << endl;
-    string Percolation_type;
-    cin >> Percolation_type;
+    for (int i = 0; i < numG; ++i) {
+        grafo aux;
+        aux.read(file);
+        G[i] = aux;        
 
-    cout << "Indiqui la probabilidad de perlocacio:" << endl;
-    cin >> p;
-
-
-    if (Percolation_type == "Vertex") {
-        site_perlocation(grafo);
-    } else if (Percolation_type == "Arestes") {
-        bond_perlocation(grafo);
-    } else cout << "Error: Input no valid";
-    
+    }
     file.close();
-    cout << "Programa finalitzat" << endl;
+
+    cout << "Indiqui la probabilidad de perlocacio, valors [0,1]:" << endl;
+    cin >> p;
+    while (p > 1.0) {
+        cout << "Error: Probabilitat major que 1, indiqui un altre valor en [0,1]" << endl;
+        cin >> p;
+    }
+
+
+    cout << "Inici perlocacio per nodes" << endl;
+    for (int i = 0; i < numG; ++i) {
+        site_perlocation(G[i]);
+        cout << "pfin"<< endl;
+
+        cout << "Graf " << i << " perlocat" << endl;
+        
+        //Guardem el graf perlocat
+        string name = "grafo";
+        name += to_string(i) + ".csv";
+        ofstream nuevo(name);
+        G[i].write(nuevo);
+        nuevo.close(); 
+    }
+    cout << "Inici perlocacio per arestes" << endl;
+    for (int i = 0; i < numG; ++i) {
+        bond_perlocation(G[i]);
+        cout << "Graf " << i << " perlocat" << endl;
+        
+        //Guardem el graf perlocat
+        string name = "grafo";
+        name += to_string(i) + ".csv";
+        ofstream nuevo(name);
+        G[i].write(nuevo);
+        nuevo.close(); 
+    }
+
+    cout << "Totes les perlocacions han finalitzat/n Programa finalitzat" << endl;
+
 }
