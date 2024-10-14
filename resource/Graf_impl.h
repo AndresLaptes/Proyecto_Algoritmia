@@ -24,11 +24,37 @@ void grafo::insert_vertice(int v) {
     vertices.push_back({v,aux});
 }
 
-void grafo::remove_vertice(int v) {
-    for (auto it = vertices.begin(); it != vertices.end(); ++it) {
+void grafo::remove_one_direction(int n, int v) { //eliminamos de v la conexion hacia n
+    bool found = false;
+    auto it = vertices.begin();
+
+    while (not found and it != vertices.end()) {
         if ((*it).first == v) {
+            found = true;
+
+            bool found2 = false;
+            auto it2 = (*it).second.begin();
+            while(not found2 and it2 != (*it).second.end()) {
+
+                if ((*it2) == n) {
+                    found2 = true;
+                    (*it).second.erase(it2);
+                } else ++it2;
+            }
+        } else ++it;
+    }
+}
+
+void grafo::remove_vertice(int v) {
+    bool found = false;
+
+    auto it = vertices.begin();
+    while (not found and it != vertices.end()) {
+        if ((*it).first == v) {
+            found = true;
+            for (auto it2 = (*it).second.begin(); it2 != (*it).second.end(); ++it2) remove_one_direction((*it).first, (*it2));
             vertices.erase(it);
-        }
+        } else ++it;
     }
 }
 

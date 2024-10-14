@@ -18,10 +18,11 @@ int main() {
     cout << "Acabamos lectura" << endl;
     for (int i = 0; i < 2; ++i) a[i].print();
     file.close();
- 
-    a[0].remove_aresta(2,1);
-    a[0].print();  
 
+    a[0].remove_vertice(1);
+    ofstream file2("salida.csv");
+    a[0].write(file2);
+    file2.close();
 
     cout << "Acabado" << endl; 
     

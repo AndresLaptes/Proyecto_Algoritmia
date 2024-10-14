@@ -9,6 +9,8 @@ class grafo
 {
     private:
         list<pair<int, list<int>>> vertices;
+        void remove_one_direction(int n, int v); 
+
     public:
         grafo();
         grafo(int v, const list<int>& arestas);   
