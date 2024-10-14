@@ -18,14 +18,9 @@ int main() {
     cout << "Acabamos lectura" << endl;
     for (int i = 0; i < 2; ++i) a[i].print();
     file.close();
-
-    for (int i = 0; i < 2; ++i) {
-        string name = "grafo";
-        name += to_string(i) + ".csv";
-        ofstream nuevo(name);
-        a[i].write(nuevo);
-        nuevo.close(); 
-    }
+ 
+    a[0].remove_aresta(2,1);
+    a[0].print();  
 
 
     cout << "Acabado" << endl; 
