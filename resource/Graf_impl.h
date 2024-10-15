@@ -1,8 +1,10 @@
 #ifndef GRAF_IMPL_H
 #define GRAF_IMPL_H
 
-#include "graf.h"
+#include <graf.h>
 #include <fstream>
+#include <vector>
+#include <stack>
 #include <sstream>
 #include <iostream>
 #include <stdio.h>
@@ -43,6 +45,33 @@ void grafo::remove_one_direction(int n, int v) { //eliminamos de v la conexion h
             }
         } else ++it;
     }
+}
+
+void grafo::DFS(int v, vector<bool>& visitados) {
+    visitados[v] = true;
+
+    for (auto vertex : vertices) {
+        if (vertex.first == v) {
+            for (auto adj : vertex.second) {
+                if (not visitados[adj]) DFS(adj, visitados);
+            }
+        }
+    }
+}
+
+int grafo::CC(int v) {
+    int V = vertices.size();
+    vector<bool> vis(V, false);
+
+    int componentes = 0;
+    for (auto it : vertices) {
+        int v = it.first;
+        if (not vis[v]) {
+            DFS(v, vis);
+            ++componentes;
+        }
+    }
+    return componentes;
 }
 
 void grafo::remove_vertice(int v) {

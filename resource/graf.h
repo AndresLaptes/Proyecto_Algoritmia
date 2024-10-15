@@ -2,14 +2,17 @@
 #define GRAF_H
 
 #include <iostream>
+#include <vector>
+#include <stack>
 #include <list>
 using namespace std;
 
 class grafo
 {
-    private:
+    private:                
         list<pair<int, list<int>>> vertices;
         void remove_one_direction(int n, int v); 
+        void DFS(int v, vector<bool>& visitados);
 
     public:
         grafo();
@@ -23,6 +26,7 @@ class grafo
         void remove_aresta(int v, int v2);
 
         int size() const;
+        int CC(int v);
         bool exist(int v) const;
         bool exist_conection(int v1, int v2) const;
         void print() const;
