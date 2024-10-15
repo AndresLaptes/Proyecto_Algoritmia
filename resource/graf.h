@@ -9,7 +9,7 @@ using namespace std;
 
 class grafo
 {
-    private:                
+    private:
         list<pair<int, list<int>>> vertices;
         void remove_one_direction(int n, int v); 
         void DFS(int v, vector<bool>& visitados);
@@ -24,6 +24,28 @@ class grafo
         void remove_vertice(int v);
         void insert_aresta(int v, int v2);
         void remove_aresta(int v, int v2);
+=======
+    private:
+        list<pair<int, list<int>>> vertices;
+    public:
+        grafo();
+        grafo(int v, const list<int>& arestas);   
+>>>>>>> PabloCalomardo
+
+        int size() const;
+        int CC(int v);
+        bool exist(int v) const;
+        bool exist_conection(int v1, int v2) const;
+        void print() const;
+
+<<<<<<< HEAD
+        list<pair<int, list<int>>> get_vertices() const;
+
+=======
+        void insert_vertice(int v);
+        void remove_vertice(int v);
+        void insert_aresta(int v, int v2);
+        void remove_aresta(int v, int v2);
 
         int size() const;
         int CC(int v);
@@ -33,7 +55,6 @@ class grafo
 
         list<pair<int, list<int>>> get_vertices() const;
 
-        void print() const;
         void read(ifstream& file);
         void write(ofstream& file);
 };
