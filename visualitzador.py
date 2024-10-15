@@ -5,13 +5,18 @@ import matplotlib.pyplot as plt
 #SCRIPT PER VISUALITZAR UN GRAF (PER A CANVIAR EL FITXER DEL GRAF CANVIEU AQUESTES VARIABLES)
 #CAL QUE NOMÉS HI HAGI UN GRAF A CADA FITXER
 
-nom_fitxer = 'grafos.csv'  # Canvia això pel nom del teu fitxer CSV
+nom_fitxer = 'Graf_graella.csv'  # Canvia això pel nom del teu fitxer CSV
 nom_resultat = 'out.png' #Canvia això pel nom del resultat
 
 # Llegeix el CSV
 def llegir_graf_csv(nom_fitxer):
     df = pd.read_csv(nom_fitxer,names=list(range(200))).dropna(axis='columns', how='all')  # Llegeix el CSV sense capçalera
     graf = nx.Graph()  # Crea un graf no dirigit
+
+    #Afegeix els nodes del graf
+    for _, fila in df.iterrows():
+        origen = fila[0]
+        graf.add_node(origen)
 
     # Afegeix arestes al graf des de les files del CSV
     for _, fila in df.iterrows():
