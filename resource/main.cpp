@@ -2,11 +2,12 @@
 #include <vector>
 #include <string>
 #include <random>
+#include <iomanip>
 #include "Graf_impl.h"
 using namespace std;
 
 //Genera un graf amb n vèrtex i amb la probabilitat p de generar arestes entre vèrtexs
- grafo genera_random(int n, float p) {
+grafo genera_random(int n, float p) {
     grafo G;
     int pr = p*100;
     for (int i = 0; i < n; ++i) G.insert_vertice(i);  //Afegeix el node i al graf
@@ -19,6 +20,8 @@ using namespace std;
     return G;
 }
 
+
+//Percolacion de vertice
 void site_perlocation(grafo& grafo, double p) {
 
     //Generar distribucio aleatoria
@@ -26,47 +29,38 @@ void site_perlocation(grafo& grafo, double p) {
     default_random_engine generator(gen_rand());
     uniform_real_distribution<double> distribution(0,1);  
 
-    cout << "pini"<< endl;
     double a; 
     list<pair<int, list<int>>> aux1 = grafo.get_vertices();
     for (auto itr = aux1.begin(); itr != aux1.end(); ++itr) {
-        cout << "iteracion" << endl;
         a = distribution(generator);
         if (a > (1-p)) {
-            cout << "p_rem"<< endl;
             grafo.remove_vertice((*itr).first);
-            cout << "p_rem_fin"<< endl;
         }  
     }  
 }
 
-
+//percolacion de arestas
 void bond_perlocation(grafo& grafo, double p) {
 
     random_device gen_rand;
     default_random_engine generator(gen_rand());
     uniform_real_distribution<double> distribution(0,1);
 
-        cout << "pinia"<< endl;
-
 
     double a;
     list<pair<int, list<int>>> aux1 = grafo.get_vertices();
 
     for (auto itr = aux1.begin(); itr != aux1.end(); ++itr) {
-            cout << "ini_for_2" << endl;
         for (auto itr2 = (*itr).second.begin(); itr2 != (*itr).second.end(); ++itr2) {
             a = distribution(generator);
             if (a > (1-p)) {
-                cout << "p_rema"<< endl;
                 grafo.remove_aresta((*itr).first, (*itr2));
-                cout << "p_rema_fin"<< endl;
             }  
         }
     }
 }
 
-int main() {
+void ejemplo() {
     ifstream file("grafos.csv");
     if (not file.is_open()) cout << "No se puede abrir" << endl; 
     for (int i = 0; i < 2; ++i) {
@@ -99,3 +93,44 @@ int main() {
 
     cout << "Acabado" << endl; 
 } 
+
+int main() {
+    ofstream file("estadisticas.csv");
+    file << "n vertices, p, p de transición" << endl;
+    int nNodes[5] = {20, 50, 100, 150, 200}; //aqui pondria el numero de nodos que generaria para cada grafo
+
+    for (int i = 0; i < 5; ++i) {
+        double p = 0.000;
+
+        ifstream grafos("input.csv");
+        if (not grafos.is_open()) {
+            cout << "No se puede abrir los grafos geometricos" << endl;
+            break;
+        }
+
+        while (p <= 1.000) {
+            grafo generados[10];
+            for (int j = 0; j < 10; ++j) generados[j].read(grafos);
+            
+            double percolados = 0;
+            double descartados = 0; //si generamos un grafo y este desde el principio no es connexo no podemos ver el cambio de fase
+            for (int j = 0; j < 10; ++j) {
+                if (generados[j].size() > 0) { //descartamos un grafo en dos casos, si inicialmente no es connexo o si es un grafo vacio.
+                    int v = generados[j].get_element();
+                    int componentes = generados[j].CC(v);
+
+                    if (componentes > 1) ++descartados;
+                    else {
+                        bond_perlocation(generados[j], p);
+                        componentes = generados[j].CC(v);
+                        if (componentes > 1) ++percolados;
+                    }
+                } else ++descartados;
+            }
+            double p_trans = double(percolados/(10.0-descartados));
+            file << std::fixed << std::setprecision(3);
+            file << nNodes << "," << p << "," << p_trans << endl;
+            p += 0.001;
+        }
+    }
+}

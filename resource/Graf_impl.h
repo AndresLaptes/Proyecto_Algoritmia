@@ -162,6 +162,10 @@ void grafo::read(ifstream& file) {
     }
 }
 
+int grafo::get_element() const {
+    return (* vertices.begin()).first;
+}
+
 void grafo::write(ofstream& file) {
     for (auto& vertice : vertices) {
         file << to_string(vertice.first);

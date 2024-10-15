@@ -29,10 +29,11 @@ class grafo
         int CC(int v);
         bool exist(int v) const;
         bool exist_conection(int v1, int v2) const;
-        void print() const;
+        int get_element() const;
 
         list<pair<int, list<int>>> get_vertices() const;
 
+        void print() const;
         void read(ifstream& file);
         void write(ofstream& file);
 };
