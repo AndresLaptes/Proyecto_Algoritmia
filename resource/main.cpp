@@ -1,7 +1,10 @@
 #include <iostream>
 #include <vector>
+<<<<<<< HEAD
 #include <string>
 #include <random>
+=======
+>>>>>>> PabloCalomardo
 #include "Graf_impl.h"
 using namespace std;
 
@@ -19,6 +22,7 @@ using namespace std;
     return G;
 }
 
+<<<<<<< HEAD
 void site_perlocation(grafo& grafo, double p) {
 
     //Generar distribucio aleatoria
@@ -98,4 +102,46 @@ int main() {
     file.close();
 
     cout << "Acabado" << endl; 
+=======
+int main() {
+    
+    string nomf;
+    cout << "insereix en nom del fitxer si vols llegir els grafs des d'un csv, si no posa no" << endl;
+    cin >> nomf;
+
+    if(nomf != "no"){
+        ifstream file(nomf);
+    }
+
+    if (not file.is_open()) cout << "No se puede abrir" << endl; 
+    vector<grafo> a(2); 
+    for (int i = 0; i < 2; ++i) {
+        grafo aux;
+        aux.read(file);
+        a[i] = aux; 
+    }
+
+    cout << "Acabamos lectura" << endl;
+    for (int i = 0; i < 2; ++i) a[i].print();
+    file.close();
+
+    int vertex;
+    double prob;
+
+    for (int i = 0; i < 2; ++i) {
+        cout << "Posa el numero de vertex i la probabilitat" << endl;
+
+        cin >> vertex >> prob;
+
+        string name = "grafo";
+        name += to_string(i) + ".csv";
+        ofstream nuevo(name);
+        a[i].write(nuevo);
+        nuevo.close(); 
+    }
+
+
+    cout << "Acabado" << endl; 
+    
+>>>>>>> PabloCalomardo
 } 
