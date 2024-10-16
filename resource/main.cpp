@@ -107,7 +107,7 @@ int main() {
             cout << "No se puede abrir los grafos geometricos" << endl;
             break;
         }
-
+ 
         while (p <= 1.000) {
             grafo generados[10];
             for (int j = 0; j < 10; ++j) generados[j].read(grafos);
