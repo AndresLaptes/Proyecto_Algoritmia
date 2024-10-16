@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-<<<<<<< HEAD
 #include <string>
+#include <list>
 #include <random>
 #include "Graf_impl.h"
 using namespace std;
@@ -91,3 +91,44 @@ void ejemplo() {
 
     cout << "Acabado" << endl; 
 } 
+
+int main() {
+    ofstream file("estadisticas.csv");
+    file << "n vertices, p, p de transición" << endl;
+    int nNodes[5] = {20, 50, 100, 150, 200}; //aqui pondria el numero de nodos que generaria para cada grafo
+
+    for (int i = 0; i < 5; ++i) {
+        double p = 0.000;
+
+        ifstream grafos("input.csv");
+        if (not grafos.is_open()) {
+            cout << "No se puede abrir los grafos geometricos" << endl;
+            break;
+        }
+ 
+        while (p <= 1.000) {
+            grafo generados[10];
+            for (int j = 0; j < 10; ++j) generados[j].read(grafos);
+            
+            double percolados = 0;
+            double descartados = 0; //si generamos un grafo y este desde el principio no es connexo no podemos ver el cambio de fase
+            for (int j = 0; j < 10; ++j) {
+                if (generados[j].size() > 0) { //descartamos un grafo en dos casos, si inicialmente no es connexo o si es un grafo vacio.
+                    int v = generados[j].get_element();
+                    int componentes = generados[j].CC(v);
+
+                    if (componentes > 1) ++descartados;
+                    else {
+                        bond_perlocation(generados[j], p);
+                        componentes = generados[j].CC(v);
+                        if (componentes > 1) ++percolados;
+                    }
+                } else ++descartados;
+            }
+            double p_trans = double(percolados/(10.0-descartados));
+            file << std::fixed << std::setprecision(3);
+            file << nNodes << "," << p << "," << p_trans << endl;
+            p += 0.001;
+        }
+    }
+}
