@@ -5,6 +5,7 @@
 #include <fstream>
 #include <vector>
 #include <stack>
+#include <list>
 #include <sstream>
 #include <iostream>
 #include <stdio.h>
@@ -26,7 +27,6 @@ void grafo::insert_vertice(int v) {
     vertices.push_back({v,aux});
 }
 
-<<<<<<< HEAD
 void grafo::remove_one_direction(int n, int v) { //eliminamos de v la conexion hacia n
     bool found = false;
     auto it = vertices.begin();
@@ -85,13 +85,6 @@ void grafo::remove_vertice(int v) {
             for (auto it2 = (*it).second.begin(); it2 != (*it).second.end(); ++it2) remove_one_direction((*it).first, (*it2));
             vertices.erase(it);
         } else ++it;
-=======
-void grafo::remove_vertice(int v) {
-    for (auto it = vertices.begin(); it != vertices.end(); ++it) {
-        if ((*it).first == v) {
-            vertices.erase(it);
-        }
->>>>>>> PabloCalomardo
     }
 }
 
@@ -116,41 +109,6 @@ bool grafo::exist_conection(int v1, int v2) const {
 }
 
 void grafo::remove_aresta(int v1, int v2) {
-<<<<<<< HEAD
-    auto it = vertices.begin();
-    
-    bool f1 = false;
-    bool f2 = false;
-
-    while ((not f1 or not f2) and it != vertices.end()) {
-        if ((*it).first == v1) {
-            f1 =  true;
-            bool found = false;
-
-            auto it2 = (*it).second.begin();
-            while (not found and it2 != (*it).second.end()) {
-                if ((*it2) == v2) {
-                    found = true;
-                    (*it).second.erase(it2);
-                } else ++it2;
-            }
-
-        } else if ((*it).first == v2) {
-            f2 = true;
-            bool found = false;
-
-            auto it2 = (*it).second.begin();
-            while (not found and it2 != (*it).second.end()) {
-                if ((*it2) == v1) {
-                    found = true;
-                    (*it).second.erase(it2);
-                } else ++it2;
-            }
-
-        } 
-        
-        if ((not f1 or not f2))++it;
-=======
     for (auto it = vertices.begin(); it != vertices.end(); ++it) {
         if ((*it).first == v1) {
             for (auto it2 = (*it).second.begin(); it2 != (*it).second.end(); ++it2) {
@@ -163,7 +121,6 @@ void grafo::remove_aresta(int v1, int v2) {
                 if ((*it2) == v1) (*it).second.erase(it2);
             }
         }
->>>>>>> PabloCalomardo
     }
 }
 
@@ -196,7 +153,6 @@ void grafo::write(ofstream& file) {
             file << "," << to_string(aresta);
         }
         file << endl;
-<<<<<<< HEAD
     }
 }
 
@@ -210,26 +166,10 @@ void grafo::print() const {
     }
 }
 
-=======
-    }
-}
-
-void grafo::print() const {
-    for (auto& v : vertices) {
-        cout << "Soy " << v.first << " con numero de arestas " << v.second.size() << " y estamos conectado a : ";
-        for (auto& a : v.second) {
-            cout << a << " ";
-        }
-        cout << endl;
-    }
-}
-
->>>>>>> PabloCalomardo
 int grafo::size() const {
     return vertices.size();
 }
 
-<<<<<<< HEAD
 void grafo::copia_grafo(list<pair<int, list<int>>> aux) {
     vertices = aux;
 }
@@ -238,8 +178,6 @@ list<pair<int, list<int>>> grafo::get_vertices() const {
     return vertices;
 }
 
-=======
->>>>>>> PabloCalomardo
 bool grafo::exist(int v) const {
     for (auto& i : vertices) {
         if (i.first == v) return true;
@@ -247,8 +185,4 @@ bool grafo::exist(int v) const {
     return false;
 }
 
-<<<<<<< HEAD
 #endif
-=======
-#endif
->>>>>>> PabloCalomardo
