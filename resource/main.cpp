@@ -95,7 +95,7 @@ void ejemplo() {
 
 int main() {
     ofstream file("estadisticas.csv");
-    file << "n vertices, p, p de transición" << endl;
+    file << "p, p de transición" << endl;
     int nNodes[5] = {20, 50, 100, 150, 200}; //aqui pondria el numero de nodos que generaria para cada grafo
 
     for (int i = 0; i < 5; ++i) {
