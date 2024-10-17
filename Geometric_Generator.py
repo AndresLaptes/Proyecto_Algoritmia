@@ -28,7 +28,7 @@ nom_resultat_csv = 'graf_geometric.csv'  # Nom del fitxer de sortida per al CSV
 esborrar_fitxer(nom_resultat_csv)
 
 for i in range(num_grafs):
-    num_nodes = random.randint(50, 100) #numero de nodes
+    num_nodes = random.randint(20, 50) #numero de nodes
     radi = 0.4   # Radi de connexió (EXPERIMENTEU)
 
     # Genera un graf geomètric aleatori

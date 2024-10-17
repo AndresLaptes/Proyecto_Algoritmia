@@ -95,7 +95,7 @@ void ejemplo() {
 } 
 
 int main() {
-    ofstream file("estadisticas(50-100).csv");
+    ofstream file("estadisticas(20-50).csv");
     file << "p, p de transición" << endl;
     bool ok = true;
     double p = 0.00;
@@ -141,7 +141,7 @@ int main() {
         file << std::fixed << std::setprecision(5);
         file << p << "," << ppercolado << endl;
         cout << "Experimento echo" << endl;
-        p += 0.01;
+        p += 0.001;
     }
     
     if (not ok) cout << "Error" << endl;
