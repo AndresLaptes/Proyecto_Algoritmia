@@ -7,7 +7,7 @@ import os
 
 # SCRIPT PER VISUALITZAR UN GRAF DES DE TOTS ELS CSV D'UNA CARPETA
 
-nom_carpeta = './resource/*.csv'  # Canvia això pel camí de la carpeta amb els CSVs
+nom_carpeta = './graf_geometric.csv'  # Canvia això pel camí de la carpeta amb els CSVs
 
 # Funció per disposar els nodes en una quadrícula
 def quadrat_layout(graf):

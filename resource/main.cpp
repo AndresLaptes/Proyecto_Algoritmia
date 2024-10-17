@@ -4,6 +4,7 @@
 #include <list>
 #include <iomanip>
 #include <random>
+#include <cstdlib>
 #include "Graf_impl.h"
 using namespace std;
 
@@ -94,42 +95,54 @@ void ejemplo() {
 } 
 
 int main() {
-    ofstream file("estadisticas.csv");
+    ofstream file("estadisticas(50-100).csv");
     file << "p, p de transición" << endl;
-    int nNodes[5] = {20, 50, 100, 150, 200}; //aqui pondria el numero de nodos que generaria para cada grafo
+    bool ok = true;
+    double p = 0.00;
 
-    for (int i = 0; i < 5; ++i) {
-        double p = 0.000;
+    int res = system("python3 Geometric_Generator.py");
 
-        ifstream grafos("input.csv");
-        if (not grafos.is_open()) {
-            cout << "No se puede abrir los grafos geometricos" << endl;
-            break;
-        }
- 
-        while (p <= 1.000) {
-            grafo generados[10];
-            for (int j = 0; j < 10; ++j) generados[j].read(grafos);
-            
-            double percolados = 0;
-            double descartados = 0; //si generamos un grafo y este desde el principio no es connexo no podemos ver el cambio de fase
-            for (int j = 0; j < 10; ++j) {
-                if (generados[j].size() > 0) { //descartamos un grafo en dos casos, si inicialmente no es connexo o si es un grafo vacio.
-                    int v = generados[j].get_element();
-                    int componentes = generados[j].CC(v);
+    if (res != 0) ok = false;
 
-                    if (componentes > 1) ++descartados;
-                    else {
-                        bond_perlocation(generados[j], p);
-                        componentes = generados[j].CC(v);
-                        if (componentes > 1) ++percolados;
-                    }
-                } else ++descartados;
-            }
-            double p_trans = double(percolados/(10.0-descartados));
-            file << std::fixed << std::setprecision(3);
-            file << nNodes << "," << p << "," << p_trans << endl;
-            p += 0.001;
-        }
+
+    ifstream grafos("graf_geometric.csv");
+    if (not grafos.is_open()) {
+        ok = false;
+        cout << "No se puede abrir los grafos geometricos" << endl;
     }
+
+    while (ok and p <= 1.0) {
+        int res = system("python3 Geometric_Generator.py");
+
+        if (res != 0) ok = false;
+
+
+        ifstream grafos("graf_geometric.csv");
+        if (not grafos.is_open()) {
+            ok = false;
+            cout << "No se puede abrir los grafos geometricos" << endl;
+        }
+
+        double percolados = 0.0;
+        double validos = 0.0;
+
+        for (int i = 0; i < 100; ++i) {
+            grafo act;
+            act.read(grafos);
+
+            if (act.CC() == 1) {
+                ++validos;
+                bond_perlocation(act, p);
+                if (act.CC() != 1) ++percolados;
+            }
+        }
+
+        double ppercolado = percolados/(10.0 - (10.0 -validos));
+        file << std::fixed << std::setprecision(5);
+        file << p << "," << ppercolado << endl;
+        cout << "Experimento echo" << endl;
+        p += 0.01;
+    }
+    
+    if (not ok) cout << "Error" << endl;
 }

@@ -60,7 +60,7 @@ void grafo::DFS(int v, vector<bool>& visitados) {
     }
 }
 
-int grafo::CC(int v) {
+int grafo::CC() {
     int V = vertices.size();
     vector<bool> vis(V, false);
 
@@ -109,18 +109,39 @@ bool grafo::exist_conection(int v1, int v2) const {
 }
 
 void grafo::remove_aresta(int v1, int v2) {
-    for (auto it = vertices.begin(); it != vertices.end(); ++it) {
-        if ((*it).first == v1) {
-            for (auto it2 = (*it).second.begin(); it2 != (*it).second.end(); ++it2) {
-                if ((*it2) == v2) (*it).second.erase(it2);
-            }
-        }
+    auto it = vertices.begin();
+    
+    bool f1 = false;
+    bool f2 = false;
 
-        if ((*it).first == v2) {
-            for (auto it2 = (*it).second.begin(); it2 != (*it).second.end(); ++it2) {
-                if ((*it2) == v1) (*it).second.erase(it2);
+    while ((not f1 or not f2) and it != vertices.end()) {
+        if ((*it).first == v1) {
+            f1 =  true;
+            bool found = false;
+
+            auto it2 = (*it).second.begin();
+            while (not found and it2 != (*it).second.end()) {
+                if ((*it2) == v2) {
+                    found = true;
+                    (*it).second.erase(it2);
+                } else ++it2;
             }
-        }
+
+        } else if ((*it).first == v2) {
+            f2 = true;
+            bool found = false;
+
+            auto it2 = (*it).second.begin();
+            while (not found and it2 != (*it).second.end()) {
+                if ((*it2) == v1) {
+                    found = true;
+                    (*it).second.erase(it2);
+                } else ++it2;
+            }
+
+        } 
+        
+        if ((not f1 or not f2))++it;
     }
 }
 

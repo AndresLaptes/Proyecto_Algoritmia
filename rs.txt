@@ -1,0 +1,639 @@
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+63
+92
+65
+67
+89
+65
+58
+55
+71
+69
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+2
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+escribint el graf:  0
+escribint el graf:  1
+escribint el graf:  2
+escribint el graf:  3
+escribint el graf:  4
+escribint el graf:  5
+escribint el graf:  6
+escribint el graf:  7
+escribint el graf:  8
+escribint el graf:  9
+Percolados: 0 y descartados: 10
+Hemos tenido algun error

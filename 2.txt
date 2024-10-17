@@ -1,0 +1,52 @@
+escribint el graf:  0
+1
+escribint el graf:  1
+1
+escribint el graf:  2
+1
+escribint el graf:  3
+1
+escribint el graf:  4
+1
+escribint el graf:  5
+1
+escribint el graf:  6
+1
+escribint el graf:  7
+1
+escribint el graf:  8
+1
+escribint el graf:  9
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+Percolados: 0 y descartados: 0
+escribint el graf:  0
+1
+escribint el graf:  1
+1
+escribint el graf:  2
+1
+escribint el graf:  3
+1
+escribint el graf:  4
+1
+escribint el graf:  5
+1
+escribint el graf:  6
+1
+escribint el graf:  7
+1
+escribint el graf:  8
+1
+escribint el graf:  9
+1
+1

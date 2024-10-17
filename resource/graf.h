@@ -26,7 +26,7 @@ class grafo
         void remove_aresta(int v, int v2);
 
         int size() const;
-        int CC(int v);
+        int CC();
         bool exist(int v) const;
         bool exist_conection(int v1, int v2) const;
         void print() const;
