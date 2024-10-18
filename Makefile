@@ -10,8 +10,8 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(COP) $(FLAGS) -o $(NAME) $(OBJ)
 
-main.o: rsc/main.cpp
-	$(COP) $(FLAGS) -c rsc/main.cpp
+main.o: resource/main.cpp
+	$(COP) $(FLAGS) -c resource/main.cpp
 
 clean: 
 	rm -f $(OBJ) $(NAME) *.h.gch *.o res.txt

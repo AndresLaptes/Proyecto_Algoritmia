@@ -3,6 +3,9 @@
 
 #include <graf.h>
 #include <fstream>
+#include <vector>
+#include <stack>
+#include <list>
 #include <sstream>
 #include <iostream>
 #include <stdio.h>
@@ -45,6 +48,33 @@ void grafo::remove_one_direction(int n, int v) { //eliminamos de v la conexion h
     }
 }
 
+void grafo::DFS(int v, vector<bool>& visitados) {
+    visitados[v] = true;
+
+    for (auto vertex : vertices) {
+        if (vertex.first == v) {
+            for (auto adj : vertex.second) {
+                if (not visitados[adj]) DFS(adj, visitados);
+            }
+        }
+    }
+}
+
+int grafo::CC(int v) {
+    int V = vertices.size();
+    vector<bool> vis(V, false);
+
+    int componentes = 0;
+    for (auto it : vertices) {
+        int v = it.first;
+        if (not vis[v]) {
+            DFS(v, vis);
+            ++componentes;
+        }
+    }
+    return componentes;
+}
+
 void grafo::remove_vertice(int v) {
     bool found = false;
 
@@ -79,39 +109,18 @@ bool grafo::exist_conection(int v1, int v2) const {
 }
 
 void grafo::remove_aresta(int v1, int v2) {
-    auto it = vertices.begin();
-    
-    bool f1 = false;
-    bool f2 = false;
-
-    while ((not f1 or not f2) and it != vertices.end()) {
+    for (auto it = vertices.begin(); it != vertices.end(); ++it) {
         if ((*it).first == v1) {
-            f1 =  true;
-            bool found = false;
-
-            auto it2 = (*it).second.begin();
-            while (not found and it2 != (*it).second.end()) {
-                if ((*it2) == v2) {
-                    found = true;
-                    (*it).second.erase(it2);
-                } else ++it2;
+            for (auto it2 = (*it).second.begin(); it2 != (*it).second.end(); ++it2) {
+                if ((*it2) == v2) (*it).second.erase(it2);
             }
+        }
 
-        } else if ((*it).first == v2) {
-            f2 = true;
-            bool found = false;
-
-            auto it2 = (*it).second.begin();
-            while (not found and it2 != (*it).second.end()) {
-                if ((*it2) == v1) {
-                    found = true;
-                    (*it).second.erase(it2);
-                } else ++it2;
+        if ((*it).first == v2) {
+            for (auto it2 = (*it).second.begin(); it2 != (*it).second.end(); ++it2) {
+                if ((*it2) == v1) (*it).second.erase(it2);
             }
-
-        } 
-        
-        if ((not f1 or not f2))++it;
+        }
     }
 }
 
@@ -131,6 +140,10 @@ void grafo::read(ifstream& file) {
             }
         } else break;
     }
+}
+
+int grafo::get_element() const {
+    return (* vertices.begin()).first;
 }
 
 void grafo::write(ofstream& file) {
