@@ -47,22 +47,22 @@ def triangular_layout(graf):
 
 # Llegeix el CSV
 def llegir_graf_csv(nom_fitxer):
-    df = pd.read_csv(nom_fitxer, names=list(range(200))).dropna(axis='columns', how='all')  # Llegeix el CSV sense capçalera
+    df = pd.read_csv(nom_fitxer, names=list(range(500))).dropna(axis='columns', how='all')  # Llegeix el CSV sense capçalera
     graf = nx.Graph()  # Crea un graf no dirigit
 
     # Afegeix els nodes del graf
     for _, fila in df.iterrows():
         origen = fila[0]
-        graf.add_node(origen)
+        graf.add_node(str(int(origen)))
 
-    df = pd.read_csv(nom_fitxer, names=list(range(200))).dropna(axis='columns', how='all')  # Llegeix el CSV sense capçalera
+    df = pd.read_csv(nom_fitxer, names=list(range(500))).dropna(axis='columns', how='all')  # Llegeix el CSV sense capçalera
     # Afegeix arestes al graf des de les files del CSV
     for _, fila in df.iterrows():
         origen = fila[0]  # El primer element de la fila és el node origen
         for desti in fila[1:]:  # La resta són nodes destinació
             if pd.notna(desti):  # Ignora els valors NaN
-                print("aresta: ",origen,"al",desti)
-                graf.add_edge(origen, desti)  # Afegeix una aresta entre l'origen i el destí
+                # print("aresta: ",origen,"al",desti)
+                graf.add_edge(str(int(origen)), str(int(desti)))  # Afegeix una aresta entre l'origen i el destí
     return graf
 
 # Cerca tots els fitxers CSV dins de la carpeta
