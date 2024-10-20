@@ -94,7 +94,7 @@ void bond_perlocation(grafo& grafo, double p) {
 int main() {
     int percolacio = -1;
     while (percolacio < 0 or percolacio > 1) {
-        cout << "Introdueix 0 per a percolació de nodes o introdueix 1 per a percolació d'arestes" << endl;
+        cout << "Introdueix 0 per a percolacio de nodes o introdueix 1 per a percolacio d'arestes" << endl;
         cin >> percolacio;
     }
     string directorio = "C:\\Users\\Enric\\Documents\\Algoritmia_Project\\docs";
@@ -124,10 +124,14 @@ int main() {
                     generat.read(fgraf); //Inicialitzem el graf
 
                         if (percolacio == 1) bond_perlocation(generat, p);
-                        else site_perlocation(generat,p);
+                        else { 
+                            site_perlocation(generat,p);
+                            ofstream file2("percolat"+to_string(i)+".csv");
+                            generat.write(file2);
+                        }
                         //generat.write(outgraf);
                         if (generat.CC() == 1){
-                            cout << "Graf amb 1 component conexa: " << filePath << endl;
+                            //cout << "Graf amb 1 component conexa: " << filePath << endl;
                             ++percolados;
                         }
                         else ++descartados;
@@ -136,7 +140,7 @@ int main() {
             }
             
             double p_trans = double(percolados/max(descartados,1.0));
-            cout <<  p << "," << percolados << descartados << endl;
+            //cout <<  p << "," << percolados << descartados << endl;
             file << std::fixed << std::setprecision(3);
             file << p << "," << p_trans << endl;
             p += 0.005;

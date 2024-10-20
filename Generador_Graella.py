@@ -1,6 +1,7 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 import numpy as np
+import random
 
 def generar_graella(n):
     G = nx.Graph()
@@ -34,13 +35,16 @@ def guardar_graella_en_fitxer(G, fitxer):
             # Escrivim la línia al fitxer
             f.write(f"{node}," + ",".join(str(v) for v in veins) + "\n")
 
-
-n = int(input("Introdueix el nombre de grafs a generar\n")) # Numero de grafs creats
+n = -1
+while (n < 0): n = int(input("Introdueix el nombre de grafs a generar\n")) # Numero de grafs creats
 nom_resultat_csv = './docs/graf_graella'  # Nom del fitxer de sortida per al CSV
+ifer = -1
+while (ifer < 0 or ifer > 1): ifer = int(input("Prem 0 per generar n grafs de mida aletoria o 1 per a seleccionar la mida dels n grafs\n"))
 
 for i in range(n):
     nom_csv = nom_resultat_csv+str(i)
-    num_nodes = int(input("Introdueix la mida desitjada del graf " + str(i) + " (rang [2..15])\n")) #Alçada
+    if (ifer == 1): num_nodes = int(input("Introdueix la mida desitjada del graf " + str(i) + " (rang [2..15])\n")) #Alçada
+    else: num_nodes = random.randint(2, 15)
     if (num_nodes > 1 and num_nodes < 16):
         G = generar_graella(num_nodes)
         guardar_graella_en_fitxer(G,nom_csv+'.csv')
