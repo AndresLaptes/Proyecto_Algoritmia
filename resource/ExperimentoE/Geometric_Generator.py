@@ -4,7 +4,6 @@ import csv
 import random
 
 def guardar_graf_csv(graf, nom_fitxer, i):
-    print("escribint el graf: ",i)
     # Obrim el fitxer en mode escriptura
     with open(nom_fitxer, mode='a', newline='') as fitxer_csv:
         writer = csv.writer(fitxer_csv, delimiter=' ')  # Utilitzem l'espai com a delimitador
@@ -28,8 +27,8 @@ nom_resultat_csv = 'graf_geometric.csv'  # Nom del fitxer de sortida per al CSV
 esborrar_fitxer(nom_resultat_csv)
 
 for i in range(num_grafs):
-    num_nodes = random.randint(3, 50) #numero de nodes
-    radi = 0.2   # Radi de connexió (EXPERIMENTEU)
+    num_nodes = random.randint(50, 100) #numero de nodes
+    radi = 0.4   # Radi de connexió (EXPERIMENTEU)
 
     # Genera un graf geomètric aleatori
     graf = nx.random_geometric_graph(num_nodes, radi)

@@ -1,17 +1,53 @@
-#Variables
-COP = g++
-FLAGS = -Wall -std=c++11 -g -I./resource
-NAME = main
+# Compilador
+CXX = g++
 
-OBJ = main.o
+# Flags de compilación
+CXXFLAGS = -std=c++17 -Wall -Wextra -I./resource -I./resource/grafos
 
-all: $(NAME)
+# Directorios
+SRCDIR = .
+BINDIR = .
+OBJDIR = ./obj
 
-$(NAME): $(OBJ)
-	$(COP) $(FLAGS) -o $(NAME) $(OBJ)
+# Archivos
+MAIN = $(SRCDIR)/main.cpp
+SRC_E = $(SRCDIR)/resource/ExperimentoE/ExperimentoE.cpp
+SRC_D = $(SRCDIR)/resource/ExperimentoD/ExperimentoD.cpp
+SRC_C = $(SRCDIR)/resource/ExperimentoC/ExperimentoC.cpp
+SRC_GRAFO = $(SRCDIR)/resource/grafos/grafo.cpp
 
-main.o: resource/main.cpp
-	$(COP) $(FLAGS) -c resource/main.cpp
+# Objetos
+OBJ_MAIN = $(OBJDIR)/main.o
+OBJ_E = $(OBJDIR)/ExperimentoE.o
+OBJ_C = $(OBJDIR)/ExperimentoC.o
+OBJ_D = $(OBJDIR)/ExperimentoD.o
+OBJ_GRAFO = $(OBJDIR)/grafo.o
 
-clean: 
-	rm -f $(OBJ) $(NAME) *.h.gch *.o res.txt
+# Ejecutable
+TARGET = $(BINDIR)/program
+
+# Reglas
+all: $(TARGET)
+
+$(TARGET): $(OBJ_MAIN) $(OBJ_E) $(OBJ_C) $(OBJ_GRAFO) $(OBJ_D)
+	$(CXX) $(CXXFLAGS) -o $@ $^
+
+$(OBJDIR)/main.o: $(MAIN)
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+
+$(OBJDIR)/ExperimentoE.o: $(SRC_E)
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+
+$(OBJDIR)/ExperimentoC.o: $(SRC_C)
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+
+$(OBJDIR)/ExperimentoD.o: $(SRC_D)
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+
+$(OBJDIR)/grafo.o: $(SRC_GRAFO)
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+
+clean:
+	rm -f $(OBJDIR)/*.o $(TARGET)
+
+.PHONY: all clean

@@ -1,11 +1,7 @@
-#ifndef GRAF_IMPL_H
-#define GRAF_IMPL_H
-
-#include <graf.h>
+#include "grafo.h"
 #include <fstream>
 #include <vector>
 #include <stack>
-#include <list>
 #include <sstream>
 #include <iostream>
 #include <stdio.h>
@@ -54,20 +50,20 @@ void grafo::DFS(int v, vector<bool>& visitados) {
     for (auto vertex : vertices) {
         if (vertex.first == v) {
             for (auto adj : vertex.second) {
-                if (not visitados[adj]) DFS(adj, visitados);
+                if (!visitados[adj]) DFS(adj, visitados);
             }
         }
     }
 }
 
-int grafo::CC(int v) {
+int grafo::CC() {
     int V = vertices.size();
     vector<bool> vis(V, false);
 
     int componentes = 0;
     for (auto it : vertices) {
         int v = it.first;
-        if (not vis[v]) {
+        if (!vis[v]) {
             DFS(v, vis);
             ++componentes;
         }
@@ -108,19 +104,84 @@ bool grafo::exist_conection(int v1, int v2) const {
     return false;
 }
 
-void grafo::remove_aresta(int v1, int v2) {
-    for (auto it = vertices.begin(); it != vertices.end(); ++it) {
-        if ((*it).first == v1) {
-            for (auto it2 = (*it).second.begin(); it2 != (*it).second.end(); ++it2) {
-                if ((*it2) == v2) (*it).second.erase(it2);
-            }
-        }
+list<list<int>> grafo::get_all_components() {
+    // Llista per guardar totes les components
+    list<list<int>> components;
 
-        if ((*it).first == v2) {
-            for (auto it2 = (*it).second.begin(); it2 != (*it).second.end(); ++it2) {
-                if ((*it2) == v1) (*it).second.erase(it2);
+    // Vector de visitats per saber si ja hem processat un vèrtex
+    vector<bool> visitados(size(), false); 
+
+    // Recorrem tots els vèrtexs
+    for (const auto& vertex : vertices) {
+        int v = vertex.first;
+
+        // Si aquest vèrtex no ha estat visitat, és una nova component
+        if (!visitados[v]) {
+            list<int> component;
+            stack<int> s;
+            s.push(v);
+
+            // Fem DFS iteratiu per trobar tota la component connectada
+            while (!s.empty()) {
+                int current = s.top();
+                s.pop();
+
+                if (!visitados[current]) {
+                    visitados[current] = true;
+                    component.push_back(current);
+
+                    // Afegim els veïns a la pila per explorar-los
+                    for (int neighbor : vertex.second) {
+                        if (!visitados[neighbor]) {
+                            s.push(neighbor);
+                        }
+                    }
+                }
             }
+
+            // Afegim la component trobada a la llista de components
+            components.push_back(component);
         }
+    }
+
+    return components;
+}
+
+
+void grafo::remove_aresta(int v1, int v2) {
+    auto it = vertices.begin();
+    
+    bool f1 = false;
+    bool f2 = false;
+
+    while ((not f1 or not f2) and it != vertices.end()) {
+        if ((*it).first == v1) {
+            f1 =  true;
+            bool found = false;
+
+            auto it2 = (*it).second.begin();
+            while (not found and it2 != (*it).second.end()) {
+                if ((*it2) == v2) {
+                    found = true;
+                    (*it).second.erase(it2);
+                } else ++it2;
+            }
+
+        } else if ((*it).first == v2) {
+            f2 = true;
+            bool found = false;
+
+            auto it2 = (*it).second.begin();
+            while (not found and it2 != (*it).second.end()) {
+                if ((*it2) == v1) {
+                    found = true;
+                    (*it).second.erase(it2);
+                } else ++it2;
+            }
+
+        } 
+        
+        if ((not f1 or not f2))++it;
     }
 }
 
@@ -184,5 +245,3 @@ bool grafo::exist(int v) const {
     }
     return false;
 }
-
-#endif
