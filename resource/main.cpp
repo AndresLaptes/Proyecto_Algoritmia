@@ -97,7 +97,8 @@ int main() {
         cout << "Introdueix 0 per a percolacio de nodes o introdueix 1 per a percolacio d'arestes" << endl;
         cin >> percolacio;
     }
-    string directorio = "C:\\Users\\Enric\\Documents\\Algoritmia_Project\\docs";
+    //Introduir path carpeta docs aqui
+    string directorio = "C:\\Users\\ensec\\Documents\\Algoritmia_Project\\docs";
 
     int num_experiments;
     cout << "introdueix el numero d'experiments que vols fer" << endl;
