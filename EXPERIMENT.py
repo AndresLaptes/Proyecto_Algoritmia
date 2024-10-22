@@ -115,7 +115,7 @@ eliminar_fitxersconcrets('./resource','*.png')
 
 
 esperar_tecla("Executem l'experiment per a tots els grafs al directori /docs/\n")
-compilar_i_executar_cpp('./resource/main.cpp')
+compilar_i_executar_cpp('./resource/Experiment_GraellesQuadrades.cpp')
 
 esperar_tecla("Juntem tots els resultats creats dins del fitxer estadisticageneral\n")
 executar_script("./resource/Compactador_estadistiques.py")
