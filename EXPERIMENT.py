@@ -8,7 +8,7 @@ def compilar_i_executar_cpp(fitxer_cpp):
     fitxer_executable = 'experimentcpp'
     
     # Comanda per a compilar el fitxer C++ amb g++
-    comanda_compilacio = ['g++', fitxer_cpp, '-o', fitxer_executable]
+    comanda_compilacio = ['g++', 'std=c++17', fitxer_cpp, '-o', fitxer_executable]
     
     try:
         # Compilar el fitxer C++
@@ -31,7 +31,7 @@ def compilar_i_executar_cpp(fitxer_cpp):
 def executar_script(script_path):
     try:
         # Executar l'script com una comanda del sistema
-        subprocess.run(['python', script_path], check=True)
+        subprocess.run(['python3', script_path], check=True)
     except subprocess.CalledProcessError as e:
         print(f"S'ha produït un error executant l'script: {e}")
 
