@@ -8,7 +8,7 @@ def compilar_i_executar_cpp(fitxer_cpp):
     fitxer_executable = 'experimentcpp'
     
     # Comanda per a compilar el fitxer C++ amb g++
-    comanda_compilacio = ['g++', 'std=c++17', fitxer_cpp, '-o', fitxer_executable]
+    comanda_compilacio = ['g++', '-std=c++17', fitxer_cpp, '-o', fitxer_executable]
     
     try:
         # Compilar el fitxer C++

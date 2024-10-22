@@ -127,11 +127,9 @@ int main() {
                         if (percolacio == 1) bond_perlocation(generat, p);
                         else { 
                             site_perlocation(generat,p);
-                            ofstream file2("percolat"+to_string(i)+".csv");
-                            generat.write(file2);
                         }
                         //generat.write(outgraf);
-                        if (generat.CC() == 1){
+                        if (generat.CC() == 2) {
                             //cout << "Graf amb 1 component conexa: " << filePath << endl;
                             ++percolados;
                         }
